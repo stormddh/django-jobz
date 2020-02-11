@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Offer detail</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container pt-md-5">
+			<div class="card mb-4">
+				<div class="card-header">
+					<h4>{{ offer.offer_title }}</h4>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"><strong>Company: </strong>{{ offer.company.name }}</li>
+					<li class="list-group-item"><strong>Contact: </strong>{{ offer.company.contact }}</li>
+					<li class="list-group-item"><strong>Location: </strong>{{ offer.location }}</li>
+					<li class="list-group-item"><strong>Description: </strong>{{ offer.offer_text }}</li>
+				</ul>
+			</div>
+			<a href="{% url 'jobz:edit' offer.id %}" class="btn btn-outline-primary">Edit</a>
+			<a href="{% url 'jobz:index' %}" class="btn btn-outline-primary">Back</a>
+		</div>
+	</body>
+</html>

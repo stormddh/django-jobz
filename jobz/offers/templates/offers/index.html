@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Jobz index</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+			<div class="p-3 mb-3 bg-light border-bottom shadow-sm">
+				<h1>Offers</h1> 
+			</div>
+			<div class="pt-md-3">
+				{% if latest_offer_list %}
+					<ul class="list-group">
+					{% for offer in latest_offer_list %}
+						<li class="list-group-item list-group-item-action">
+							<a href="{% url 'jobz:detail' offer.id %}">{{ offer.offer_title }} - {{ offer.pub_date | date:"m.d.Y" }}</a>
+						</li>
+					{% endfor %}
+					</ul>
+				{% else %}
+					<p>No offers are available.</p>
+				{% endif %}
+				</div>
+			<div class="pt-md-3">
+				<a class="btn btn-outline-primary" href="{% url 'jobz:new_offer' %}">Create new offer</a>
+				<a class="btn btn-outline-primary" href="{% url 'jobz:new_company' %}">Register new company</a>
+			</div>
+		</div>
+	</body>
+</html>
